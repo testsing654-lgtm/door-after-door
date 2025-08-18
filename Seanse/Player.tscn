@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqfqmrmxh10ot"]
+
+[ext_resource type="Script" uid="uid://bjpasspby0s4m" path="res://السكربتات/player.gd" id="1_e25ge"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_rdfyp"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e25ge"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_e25ge")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_rdfyp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_e25ge")
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.679, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head"]
