@@ -10,6 +10,8 @@ extends CharacterBody3D
 
 @onready var head: Node3D = $Head
 @onready var camera_3d: Camera3D = $Head/Camera3D
+@onready var ray_cast_3d: RayCast3D = $Head/Camera3D/RayCast3D
+
 
 var target_velocity = Vector3.ZERO
 var head_bob_time = 0.0
@@ -18,6 +20,10 @@ var is_mouse_captured = false
 var touch_start_pos = Vector2.ZERO
 var is_swiping = false
 
+var interact_distance := 5.0
+var current_target: Node = null
+
+var currect_interactlabel = null
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	is_mouse_captured = true
@@ -51,6 +57,19 @@ func _input(event):
 	pass
 
 func _physics_process(delta):
+	
+	if ray_cast_3d.is_colliding():
+		var collider = ray_cast_3d.get_collider()
+		if  collider and collider.is_in_group("test"):
+			current_target = collider
+			if current_target.has_method("show_label"):
+				current_target.show_label()
+		else:
+			_clear_target()
+	else:
+		_clear_target()
+	if Input.is_action_just_pressed("e") and current_target:
+		_pickup(current_target)
 	var direction = Vector3.ZERO
 	
 	var input_dir = Input.get_vector("a", "d", "w", "s")
@@ -78,3 +97,12 @@ func _physics_process(delta):
 	else:
 		camera_3d.transform.origin.y = lerp(camera_3d.transform.origin.y, 0.0, delta * 10.0)
 	pass
+
+func _clear_target():
+	if current_target and current_target.has_method("hide_label"):
+		current_target.hide_label()
+	current_target = null
+
+func _pickup(target):
+	target.queue_free()
+	current_target = null

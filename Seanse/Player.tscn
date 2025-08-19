@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bqfqmrmxh10ot"]
 
-[ext_resource type="Script" uid="uid://bjpasspby0s4m" path="res://السكربتات/player.gd" id="1_e25ge"]
+[ext_resource type="Script" uid="uid://bjpasspby0s4m" path="res://Scrpit/player.gd" id="1_e25ge"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_rdfyp"]
 
@@ -19,3 +19,6 @@ shape = SubResource("CapsuleShape3D_e25ge")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.679, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
+
+[node name="RayCast3D" type="RayCast3D" parent="Head/Camera3D"]
+target_position = Vector3(0, 0, -3)

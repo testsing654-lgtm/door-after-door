@@ -1,6 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://vf2plx4ademj"]
+[gd_scene load_steps=20 format=3 uid="uid://vf2plx4ademj"]
 
-[ext_resource type="PackedScene" uid="uid://bqfqmrmxh10ot" path="res://المشاهد/Player.tscn" id="1_8ui1j"]
+[ext_resource type="PackedScene" uid="uid://bqfqmrmxh10ot" path="res://Seanse/Player.tscn" id="1_8ui1j"]
+[ext_resource type="Script" uid="uid://blgtkguq3r471" path="res://Scrpit/world_test.gd" id="1_gi1y3"]
+[ext_resource type="Texture2D" uid="uid://b04222a1in1bp" path="res://Assets/Fabric/plank_flooring_02_1k.gltf/textures/plank_flooring_02_diff_1k.jpg" id="2_ddqpw"]
+[ext_resource type="Texture2D" uid="uid://dt3ddhlev2mbj" path="res://Assets/Fabric/wood_planks_1k.gltf/textures/wood_planks_diff_1k.jpg" id="3_c02ry"]
+[ext_resource type="PackedScene" uid="uid://dt3iao8xddvsc" path="res://Seanse/block.tscn" id="3_qos73"]
+[ext_resource type="Script" uid="uid://bp84c3l4sc1w3" path="res://Scrpit/rian.gd" id="6_c02ry"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qcgja"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -15,10 +20,18 @@ sky = SubResource("Sky_8kclg")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nb6pr"]
+albedo_texture = ExtResource("2_ddqpw")
+uv1_scale = Vector3(5, 5, 5)
+
 [sub_resource type="BoxMesh" id="BoxMesh_m14hp"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_m14hp"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ocb0c"]
+albedo_texture = ExtResource("3_c02ry")
+uv1_scale = Vector3(7, 7, 7)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_8ui1j"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
@@ -32,7 +45,13 @@ data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_xslsp"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tjuhn"]
+albedo_color = Color(0, 1, 1, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_4ndgc"]
+
 [node name="World test" type="Node3D"]
+script = ExtResource("1_gi1y3")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_xslsp")
@@ -40,11 +59,13 @@ environment = SubResource("Environment_xslsp")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 shadow_enabled = true
+sky_mode = 2
 
 [node name="floor & wall" type="Node3D" parent="."]
 
 [node name="floor" type="MeshInstance3D" parent="floor & wall"]
 transform = Transform3D(7, 0, 0, 0, 0.1, 0, 0, 0, 7, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_nb6pr")
 mesh = SubResource("BoxMesh_m14hp")
 skeleton = NodePath("../..")
 
@@ -54,7 +75,8 @@ skeleton = NodePath("../..")
 shape = SubResource("ConcavePolygonShape3D_m14hp")
 
 [node name="wall" type="MeshInstance3D" parent="floor & wall"]
-transform = Transform3D(-3.0598e-07, -0.1, 0, 7, -4.37114e-09, 0, 0, 0, 7, 3.46707, 1.50609, 0)
+transform = Transform3D(-3.0598e-07, -0.1, 0, 7, -4.37114e-09, 0, 0, 0, 7, 3.46102, 1.50609, -0.00607634)
+material_override = SubResource("StandardMaterial3D_ocb0c")
 mesh = SubResource("BoxMesh_m14hp")
 skeleton = NodePath("../..")
 
@@ -64,7 +86,8 @@ skeleton = NodePath("../..")
 shape = SubResource("ConcavePolygonShape3D_8ui1j")
 
 [node name="wall2" type="MeshInstance3D" parent="floor & wall"]
-transform = Transform3D(-3.0598e-07, -0.1, 0, 7, -4.37114e-09, 0, 0, 0, 7, -3.48929, 1.50609, 0)
+transform = Transform3D(-3.0598e-07, -0.1, 0, 7, -4.37114e-09, 0, 0, 0, 7, -3.49534, 1.50609, -0.00607634)
+material_override = SubResource("StandardMaterial3D_ocb0c")
 mesh = SubResource("BoxMesh_m14hp")
 skeleton = NodePath("../..")
 
@@ -74,7 +97,8 @@ skeleton = NodePath("../..")
 shape = SubResource("ConcavePolygonShape3D_qcgja")
 
 [node name="wall3" type="MeshInstance3D" parent="floor & wall"]
-transform = Transform3D(1.33748e-14, 4.37114e-09, 7, 7, -4.37114e-09, 0, 3.0598e-07, 0.1, -3.0598e-07, -0.0420456, 1.50609, -3.57212)
+transform = Transform3D(1.33748e-14, 4.37114e-09, 7, 7, -4.37114e-09, 0, 3.0598e-07, 0.1, -3.0598e-07, -0.0481005, 1.50609, -3.5782)
+material_override = SubResource("StandardMaterial3D_ocb0c")
 mesh = SubResource("BoxMesh_m14hp")
 skeleton = NodePath("../..")
 
@@ -84,7 +108,8 @@ skeleton = NodePath("../..")
 shape = SubResource("ConcavePolygonShape3D_8kclg")
 
 [node name="wall4" type="MeshInstance3D" parent="floor & wall"]
-transform = Transform3D(1.33748e-14, 4.37114e-09, 7, 7, -4.37114e-09, 0, 3.0598e-07, 0.1, -3.0598e-07, -0.0420456, 1.50609, 3.44884)
+transform = Transform3D(1.33748e-14, 4.37114e-09, 7, 7, -4.37114e-09, 0, 3.0598e-07, 0.1, -3.0598e-07, -0.0481005, 1.50609, 3.44276)
+material_override = SubResource("StandardMaterial3D_ocb0c")
 mesh = SubResource("BoxMesh_m14hp")
 skeleton = NodePath("../..")
 
@@ -95,3 +120,23 @@ shape = SubResource("ConcavePolygonShape3D_xslsp")
 
 [node name="Player" parent="." instance=ExtResource("1_8ui1j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.91124, 0)
+
+[node name="block" parent="." instance=ExtResource("3_qos73")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.579397, 2.69706)
+
+[node name="Rian" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.2155, 0)
+script = ExtResource("6_c02ry")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="Rian"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+material_override = SubResource("StandardMaterial3D_tjuhn")
+amount = 2500
+lifetime = 5.0
+mesh = SubResource("CapsuleMesh_4ndgc")
+direction = Vector3(0, -1, 0)
+gravity = Vector3(0, -20, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 30.0
+scale_amount_min = 0.02
+scale_amount_max = 0.02
